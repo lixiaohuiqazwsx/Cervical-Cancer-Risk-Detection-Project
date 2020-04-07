@@ -1,0 +1,37 @@
+ 提交日期    which                             model                                                          备注
+12.4       d101204_nms_linear_04.zip         cascade_mask_rcnn_X_101_32x8d_FPN_gn_dconv_test.yaml           置信度普遍较低
+12.6       d191206_nms_original_04.zip       cascade_mask_rcnn_X_152_FPN.yaml 19999.pth                     没结果？？？？ test roi位置有误
+12.7       d191207.zip                       cascade_mask_rcnn_X_152_FPN.yaml                               不做后处理  test roi位置有误，已更改
+12.8       d191208_nms_linear_04.zip         cascade_mask_rcnn_X_152_FPN.yaml                               共470k左右 nms-> 200k
+12.9       d191209_nms_linear_04.zip         cascade_mask_rcnn_X_152_FPN.yaml                               共470k左右,过滤score<0.4的 70k nms->30k
+12.10      d191210_nms_linear_04.zip         cascade_mask_rcnn_X_152_FPN.yaml 19999.pth                     共440k左右，过滤score<0.5的 44k nms->17k
+12.11      d191211.zip                       cascade_mask_rcnn_R_50_FPN_3x.yaml                             白，预测263723个结果后处理变12万
+12.12      d191212.zip                       cascade_mask_rcnn_R_50_FPN_3x.yaml                             白，加阈值0.2 加阈值0.8，加正常与异常分离 26万变12万变4万变3万变2.8万
+12.13      d191213.zip                       cascade_mask_rcnn_X_152_FPN.yaml                               白，187176(原始) 89799（nms_linear）36615（0.2 score） 29165（0.8不同类别）  27262（异正常分离）
+12.14      d191214.zip                       cascade_mask_rcnn_X_152_FPN.yaml                               白，187176（原始）   54693（后处理+过滤0.05|（过滤0.2 28784）） 49317(阴阳分离)
+12.15      d191215_merged_d191213.zip        1213_cascade_rcnn_X_152_FPN.yaml                au ah hl ll 四类目标结果和1213提交的结果混合，两次nms->39k左右,iou阈值0.4,多个score_thres={'HSIL':0.5, 'LSIL': 0.5, 'ASC-H': 0.3, 'ASC-US': 0.3,'Candida':0.2, 'Trichomonas':0.2} :total: 39576 {'ASC-H': 11476, 'ASC-US': 13320, 'HSIL': 1243, 'LSIL': 1195, 'Trichomonas': 11751, 'Candida': 591}
+12.16      d191216.zip                       4类结果加念珠菌结果加cascade_mask_rcnn_X_152_FPN的滴虫结果      3个模型（34433 40944 9309 11305 28654 78754）各用nm后（10490 13195 1859 2002 8387 26838）1:'ASC-H', 2: 'ASC-US', 3: 'HSIL', 4: 'LSIL', 5: 'Candida', 6: 'Trichomonas'
+12.17      d191217_merged_d191213.zip        1213_cascade_rcnn_X_152_FPN.yaml                au ah hl ll 四类目标结果和1213提交的结果混合，两次nms->32k左右,iou阈值0.4,多个score_thres={'HSIL':0.5, 'LSIL': 0.5, 'ASC-H': 0.5, 'ASC-US': 0.4,'Candida':0.2, 'Trichomonas':0.2} 最终个数{'ASC-H': 6747, 'ASC-US': 10573, 'LSIL': 1195, 'HSIL': 1243, 'Trichomonas': 11751, 'Candida': 591}
+12.18      d191218.zip                       4类（训练35000次模型）加cascade_mask_rcnn_X_152_FPN的滴虫和念珠菌结果   各类的数量32381 38801 8638 10751 8137 78754 过滤 9515 11985 1420 1725 1970 26838 阴阳分离8996 10825 1375 1475 804 23562，发现结果会更少了，可能不好。
+12.19      d191219_merged_d191215.zip        1217_cascade_rcnn_X_152_FPN_cls_3.yaml                au ah hl  三类目标结果和d191215_merged_d191213.zip混合，两次nms->35k左右,iou阈值0.4,多个score_thres={'HSIL':0.5, 'LSIL': 0.5, 'ASC-H': 0.5, 'ASC-US': 0.5,'Candida':0.2, 'Trichomonas':0.2} 最终个数 {'ASC-H': 8907, 'ASC-US': 11617, 'HSIL': 1674, 'LSIL': 1185, 'Trichomonas': 11737, 'Candida': 585}
+12.20      d191220_merged_d191215.zip        1215_cascade_rcnn_X_152_FPN_cls_2.yaml                ah hl  两类目标结果和d191215_merged_d191213.zip混合，三次nms,iou阈值0.4/0.3,多个score_thres={'all':0.2,'HSIL':0.6, 'LSIL': 0.5, 'ASC-H': 0.6, 'ASC-US': 0.5,'Candida':0.2, 'Trichomonas':0.2} total: 31318 {'ASC-H': 9362, 'ASC-US': 7431, 'HSIL': 1415, 'LSIL': 830, 'Trichomonas': 11712, 'Candida': 568}
+12.21      d191221.zip                       4类（训练35000次模型）加cascade_mask_rcnn_X_152_FPN的滴虫和念珠菌结果     115975 217029 34440 84056 8137 78754 过滤 25227 52240 1878 5080 1970 26838
+12.22      d191222_merged_d191221.zip        1213_cascade_rcnn_X_152_FPN.yaml                au ah hl ll 四类目标结果和1221提交的结果混合，三次nms,iou阈值0.4.score_thres={'all':0.1,'HSIL':0.5, 'LSIL': 0.5, 'ASC-H': 0.3, 'ASC-US': 0.3,'Candida':0.2, 'Trichomonas':0.2} ,total: 44245 {'ASC-H': 11289, 'ASC-US': 17360, 'Trichomonas': 12671, 'HSIL': 936, 'LSIL': 913, 'Candida': 1076}
+12.23      d191223.zip                       1217_cascade_rcnn_X_152_FPN.yaml                一次nms,iou阈值0.4.500k->43k,score_thres={'all':0.0,'HSIL':0.3, 'LSIL': 0.3, 'ASC-H': 0.3, 'ASC-US': 0.3,'Candida':0.3, 'Trichomonas':0.3} ,total: 43486 {'ASC-H': 14496, 'ASC-US': 11756, 'Trichomonas': 12266, 'HSIL': 1541, 'LSIL': 1182, 'Candida': 2245}
+12.24      d191224_combine_d191223.zip       1213_cascade_rcnn_X_152_FPN_cls_4.yaml          两次次nms,iou阈值0.4.200k->20k+15k(15k的滴虫和念珠菌，昨天的结果里仅使用阈值过滤出来的),score_thres={'all':0.0,'HSIL':0.4, 'LSIL': 0.4, 'ASC-H': 0.3, 'ASC-US': 0.3,'Candida':0.5, 'Trichomonas':0.4} ,total: 35343 {'ASC-H': 10444, 'ASC-US': 11899, 'Trichomonas': 8840, 'HSIL': 1444, 'LSIL': 1388, 'Candida': 1328} 目的：1.cls_4的效果，2.d191223的cls_6中滴虫和念珠菌的效果
+12.25      d191225.zip                       cascade_rcnn_X_152_FPN_TS.yaml+22日念珠菌+19日的4类结果   这次新的滴虫数据集是257535个对象。 后处理 78596    过滤 0.2  33312  总体（76747 10573 1243 1195 1076 33312）         
+12.27      d191227.zip                       cascade_mask_rcnn_X_152_FPN(后面用轻型数据库继续训练)     原23609 27442 7571 7426 5631 71651处理6685 8166 1241 802 1352 22702 （处理方式18号一样，分三部分后处理，可以和他一起对比）
+12.28      d191223.zip                       1217_cascade_rcnn_X_152_FPN.yaml  120000iters    一次nms,iou阈值0.4.460k->46k,score_thres={'all':0.0,'HSIL':0.3, 'LSIL': 0.3, 'ASC-H': 0.3, 'ASC-US': 0.3,'Candida':0.5, 'Trichomonas':0.2} ,total: 46462 {'ASC-H': 12741, 'ASC-US': 10627, 'Trichomonas': 18890, 'HSIL': 1432, 'LSIL': 1584, 'Candida': 1188}
+12.29      d191219.zip                       cascade_mask_rcnn_X_152_FPN(后面用轻型数据库继续训练)  原24369 26663 7530 7522 5114 59769处理后7025 7893 1252 950 1227 18916
+12.30      d191230_chuli3.zip                       cascade_mask_rcnn_X_152_FPN(后面用轻型数据库继续训练)  原17501 20047 4624 5052 5476 69648处理后6551 7650 1749 1897 1355 22557,(和29号不能对比了，因为后处理方式改变了)
+12.31      d191231_chuli2.zip               cascade_mask_rcnn_X_152_FPN(85000)              原24369 26663 7530 7522 5114 59769处理9036 10109 2803 2823 1326 19267过滤（0.2）4932 5660 1297 1274 859 10471
+01.01      d200101_chuli2_new_iou.zip               cascade_mask_rcnn_X_152_FPN(85000)              原24369 26663 7530 7522 5114 59769处理后9112 10173 2845 2837 1296 19451（和31，30，29 基本可以对比 ）
+01.02      d200102_chuli_2_4_new.zip        cascade_mask_rcnn_X_152_FPN(final)              原17501 20047 4624 5052 5476 51879处理后6647 7762 1778 1921 13s60 17323（滴虫过滤阈值0.1）
+01.03      d200103_chuli5.zip               cascade_mask_rcnn_X_152_FPN(46000it,70000it,final)  三模型决策（不叫融合）5912 6833 1561 1674 1149 19391 (基础是final)
+01.04      d200104_wei_new.zip              晓燕的结果结合（白用的3模型融合）               处理结果8596（白） 7266 1276 1818 1391（白） 14419
+01.05      d200105.zip                      cascade_mask_rcnn_X_152_FPN(138368it)          122193原16497 21525 5957 6110 5726 66378处理后6439 8408 2248 2349 1457 22387
+01.06      d200106.zip                      cascade_mask_rcnn_X_152_FPN(155000it)          116300 原14668 14096 7242 8529 5396 66369处理后6002 5830 2869 3255 1517 22223
+01.07      d200107_22_hours.zip             6模型融合 投票4次结果                           6971 8011 2191 2289 1247 20818
+01.07      d200107.zip                      5模型最好结果 加 官方2个json                    6647 8408 1432 3255 1457 22702
+01.08      d200108_22_hours.zip             7号结果加 投票三次结果，加阴阳分离 加 官方2个json              8455（3） 8041 1398 2783（3） 1457 22635
+01.08      d200108.zip                      7号结果 加强阴阳分离 加 官方2个json                    5163 6918 1397 2551 1457 16606     
