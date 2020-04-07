@@ -4,6 +4,7 @@
 
 ## 比赛介绍与最终成绩
 ![1.png](https://i.loli.net/2020/04/07/fmkDZlIcqJnwArG.png)
+![465b55427a3b60ea197c7b8fd9c57fa.png](https://i.loli.net/2020/04/07/tITo3hUGA9n8ua2.png)
 ![2.png](https://i.loli.net/2020/04/07/pu4YbjEsUqc3xfI.png)
 
 ## 比赛过程中的数据与代码分析、反思与方法总结
